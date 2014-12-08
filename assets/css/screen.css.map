@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,IAAK,CACJ,IAAI,CAAE,6DAA6D,CACnE,MAAM,CAAE,CAAC,CACT,OAAO,CAAE,CAAC,CAGX,EAAG,CACF,KAAK,CAAE,MAAM",
+"sources": ["../../../assets/scss/screen.scss"],
+"names": [],
+"file": "screen.css"
+}
