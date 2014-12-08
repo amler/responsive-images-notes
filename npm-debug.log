@@ -1,0 +1,57 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'jshint-stylish' ]
+2 info using npm@1.3.14
+3 info using node@v0.10.22
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'jshint-stylish', null ]
+6 verbose cache add name=undefined spec="jshint-stylish" args=["jshint-stylish",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'jshint-stylish',
+7 verbose parsed url   path: 'jshint-stylish',
+7 verbose parsed url   href: 'jshint-stylish' }
+8 silly lockFile 22813634-jshint-stylish jshint-stylish
+9 verbose lock jshint-stylish /Users/vzzshn/.npm/22813634-jshint-stylish.lock
+10 silly lockFile 22813634-jshint-stylish jshint-stylish
+11 silly lockFile 22813634-jshint-stylish jshint-stylish
+12 verbose addNamed [ 'jshint-stylish', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile f26fdf17-jshint-stylish jshint-stylish@
+15 verbose lock jshint-stylish@ /Users/vzzshn/.npm/f26fdf17-jshint-stylish.lock
+16 silly addNameRange { name: 'jshint-stylish', range: '*', hasData: false }
+17 verbose url raw jshint-stylish
+18 verbose url resolving [ 'https://registry.npmjs.org/', './jshint-stylish' ]
+19 verbose url resolved https://registry.npmjs.org/jshint-stylish
+20 info trying registry request attempt 1 at 11:47:32
+21 http GET https://registry.npmjs.org/jshint-stylish
+22 info retry will retry, error on last attempt: Error: connect ETIMEDOUT
+23 info trying registry request attempt 2 at 11:48:58
+24 http GET https://registry.npmjs.org/jshint-stylish
+25 info retry will retry, error on last attempt: Error: connect ETIMEDOUT
+26 info trying registry request attempt 3 at 11:51:15
+27 http GET https://registry.npmjs.org/jshint-stylish
+28 silly lockFile f26fdf17-jshint-stylish jshint-stylish@
+29 silly lockFile f26fdf17-jshint-stylish jshint-stylish@
+30 error network connect ETIMEDOUT
+30 error network This is most likely not a problem with npm itself
+30 error network and is related to network connectivity.
+30 error network In most cases you are behind a proxy or have bad network settings.
+30 error network
+30 error network If you are behind a proxy, please make sure that the
+30 error network 'proxy' config is set properly.  See: 'npm help config'
+31 error System Darwin 13.4.0
+32 error command "node" "/usr/local/bin/npm" "install" "jshint-stylish"
+33 error cwd /Users/vzzshn/Sites/responsive-images
+34 error node -v v0.10.22
+35 error npm -v 1.3.14
+36 error syscall connect
+37 error code ETIMEDOUT
+38 error errno ETIMEDOUT
+39 verbose exit [ 1, true ]

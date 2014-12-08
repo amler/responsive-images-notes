@@ -1,0 +1,16 @@
+{
+	"name": "picturefill-study",
+	"version": "0.1.0",
+	"description": "Exploring responsive images using the new pitcure element along with Picturefill",
+	"author": "Heather Amler <amler.heather@gmail.com>",
+	"repository" : {},
+	"devDependencies": {
+		"grunt": "~0.4.5",
+		"grunt-contrib-copy": "~0.7.0",
+		"grunt-contrib-jshint": "~0.10.0",
+		"grunt-contrib-sass": "~0.8.1",
+		"grunt-contrib-uglify": "~0.6.0",
+		"grunt-contrib-watch": "~0.6.1",
+		"grunt-contrib-connect": "~0.9.0"
+	}
+}

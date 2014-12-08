@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <link rel="canonical" content="http://www.ally.com/learn/trust-account/" /> <<<< WTF IS THAT THING ??? -->
+	
+	<link rel="stylesheet" href="assets/css/screen.css" />
+	<title>Picturefill Study</title>
+	<!-- async loading attr added to script -->
+	<script src="assets/js/libraries/picturefill.js" async></script>
+</head>
+<body style="padding: 30px;">
+	<div class="container">
+		<h1>Responsive Images</h1>
+		<p>Picturefill 2.0 adds support for both the <code>picture</code> element and also new responsive attributes to the <code>img</code> element. Built and maintained by the filament Group</p>
+		<ol>
+			<li>Ensure that images scale efficiently with srcset and sizes.</li>
+			<li>Art direct images with picture and source media.</li>
+			<li>Supply an alternate image format using picture and source type.</li>
+		</ol>
+
+		<h2>Using <code>img</code> with <code>srcset</code> &amp; <code>sizes</code></h2>
+		<p>The new srcset attribute (of the <code>img</code> element) is a hint to the browser. It suggests to the browser that it should load one image on a small low-res screen, and load another in a big, high-res one. However, the browser can still choose to ignore this suggestion. For instance, if the browser knows the network conditions are poor, or the device is running out of battery, it may choose to download a low resolution image even to an HD Tablet.</p>
+
+		<h3>First pass: scaling with scrset and sizes#section2</h3>
+		
+		
+
+
+		READ: <a href="http://ericportis.com/posts/2014/srcset-sizes/">Eric Portis: Srcset and Sizes</a>
+		<p>The <code>sizes</code> syntax is used to define the size of the image across a number of breakpoints.<br/> <code>srcset</code> then defines an array of images and their inherent sizes</p>
+		<img 
+			sizes="100vw, (min-width: 40em) 80vw" 
+			srcset="assets/img/300x225-small.jpg 400w, assets/img/500x375-medium.jpg 800w, assets/img/680x480-large.jpg 1200w" 
+			alt="Pie" />
+		<hr/>
+		<h2>Using <code>picture</code> Element</h2>
+
+	</div>
+
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+		if (!window.jQuery) {
+			document.write('<script src="assets/js/libraries/jquery-2.1.1.min.js"><\/script>');
+		}
+	</script>
+	<script src="assets/js/main.js"></script>
+</body>
+</html>
