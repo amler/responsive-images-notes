@@ -12,6 +12,10 @@ module.exports = function(grunt) {
 					'build/index.html': 'index.html'
 				}
 			},
+			css: {
+				src: 'assets/css/screen.css',
+				dest: 'build/assets/css/screen.css'
+			},
 			images: {
 				expand: true,
 				cwd: 'assets/img',
@@ -39,7 +43,7 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				options: {
-					style: 'expanded'
+					style: 'compressed'
 				},
 				files: {
 					'assets/css/screen.css': 'assets/scss/screen.scss'
