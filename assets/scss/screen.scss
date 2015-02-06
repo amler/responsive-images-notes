@@ -1,34 +1,64 @@
+@import "includes/grid";
+
+* {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
 body {
-	font: 400 14px/1.7em 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
+	font: 400 16px/1.7em 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
 	margin: 0;	
-	padding: 0;
+	padding: 30px;
 }
 
 h1 {
 	color: purple;
 }
 h2 {
-	font-size: 16px;
-	font-size: 1.143em;
+	font-size: 20px;
+	// font-size: 1.143em;
 	font-weight: 600;
 	margin: 30px 0;
 }
 code {
-	background-color: rgb(188, 224, 212);
-	border: 1px solid teal;
+	background-color: #DDE2E0;
+	border: 1px solid #333;
 	padding: 1px;
-	font-weight: normal;
 }
-
-hr{
+hr {
+	border: 0;
+	height: 1px;
 	margin: 20px 0;
+	background: #333;
 }
 .container {
-	max-width: 1400px;
 	margin: 0 auto;
-	padding: 10px;
+	max-width: 1200px;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
 }
 
-// Come up with a list of requirements the grid system needs to meet and just write a mixin that meets those requirements and builds out you grid system's CSS?
+img {
+	max-width: 100%;
+}
 
-//http://css-tricks.com/naming-media-queries/
+blockquote {
+	background-color: #cbcbcb;
+	margin: 20px auto;
+	padding: 20px;
+	width: 50%;
+}
+
+span {
+	background-color: #cbcbcb;
+	padding: 3px;
+}
+
+.retina-example	{
+	margin: auto;
+	img {
+		width: 600px;
+	}
+}

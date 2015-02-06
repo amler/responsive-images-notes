@@ -19,9 +19,9 @@ module.exports = function(grunt) {
 				dest: 'build/assets/img',
 				filter: 'isFile'
 			},
-			libraries: {
+			js: {
 				expand: true,
-				cwd: 'assets/js/libraries',
+				cwd: 'assets/js/',
 				src: '**',
 				dest: 'build/assets/js',
 				filter: 'isFile'
@@ -31,32 +31,18 @@ module.exports = function(grunt) {
 			options: {
 				// reporter: require('jshint-stylish'),
 				browser: true,
-				globals: {
-					jQuery: true
-				}
 			},
 			all: [
-				'Gruntfile.js',
-				'assets/js/*.js'
+				'Gruntfile.js'
 			]
 		},
 		sass: {
 			dist: {
 				options: {
-					style: 'compressed'
+					style: 'expanded'
 				},
 				files: {
 					'assets/css/screen.css': 'assets/scss/screen.scss'
-				}
-			}
-		},
-		uglify: {
-			dist: {
-				files: {
-					'build/assets/js/main.js': [
-						'assets/js/modules/*.js',
-						'assets/js/main.js'
-					]
 				}
 			}
 		},
@@ -74,14 +60,11 @@ module.exports = function(grunt) {
 			html: {
 				files: [
 					'index.html'
+					// 'mobify.html'
 				],
-				tasks: ['copy:html']
 			},
 			js: {
-				files: [
-					'assets/js/main.js',
-					'Gruntfile.js'
-				],
+				files: ['Gruntfile.js'],
 				tasks: ['jshint']
 			}
 		},
@@ -95,7 +78,6 @@ module.exports = function(grunt) {
 			}
 		}
 	});
-
 	grunt.task.registerTask('setup', 'Refreshes build directory for a new build process.', function() {
 		grunt.file.delete('build');
 		grunt.file.mkdir('build');
@@ -105,10 +87,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('javascript', ['jshint', 'uglify']);
-	grunt.registerTask('default', ['connect', 'watch', 'jshint', 'sass']);
-	grunt.registerTask('build', ['setup', 'javascript', 'sass', 'copy']);
+	grunt.registerTask('default', ['connect', 'watch']);
+	grunt.registerTask('build', ['setup', 'sass', 'copy']);
 };

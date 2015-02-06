@@ -1,50 +1,156 @@
 <!DOCTYPE html>
 <html>
 	<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="format-detection" content="telephone=no">
-<!-- <link rel="canonical" content="http://www.ally.com/learn/trust-account/" /> <<<< WTF IS THAT THING ??? -->
-<link rel="stylesheet" href="assets/css/screen.css" />
-<title>Picturefill Study</title>
-<!-- async loading attr added to script -->
-<script src="assets/js/libraries/picturefill.js" async></script>
-</head>
-<body style="padding: 30px;">
-<div class="container">
-<h1>Responsive Images</h1>
-<p>Picturefill 2.0 adds support for both the <code>picture</code> element and also new responsive attributes to the <code>img</code> element. Built and maintained by the filament Group</p>
-<ol>
-<li>Ensure that images scale efficiently with srcset and sizes.</li>
-<li>Art direct images with picture and source media.</li>
-<li>Supply an alternate image format using picture and source type.</li>
-</ol>
+		<link rel="stylesheet" href="assets/css/screen.css" />
+		<title>Picturefill Study</title>
 
-<h2>Using <code>img</code> with <code>srcset</code> &amp; <code>sizes</code></h2>
-<p>The new srcset attribute (of the <code>img</code> element) is a hint to the browser. It suggests to the browser that it should load one image on a small low-res screen, and load another in a big, high-res one. However, the browser can still choose to ignore this suggestion. For instance, if the browser knows the network conditions are poor, or the device is running out of battery, it may choose to download a low resolution image even to an HD Tablet.</p>
+		<script>
+			// Picture element HTML5 shiv allow older browsers to recognize picture elements if it encounters them in the page before picturefill has finished loading. Note that if you are already including a recent version of the HTML5 Shiv (sometimes packaged with Modernizr), you may not need this line as it is included there as well.
+			document.createElement("picture");
+			// Note that if you are already including a recent version of the HTML5 Shiv (sometimes packaged with Modernizr), you may not need this line as it is included there as well. 
+		</script>
 
-<h3>First pass: scaling with scrset and sizes#section2</h3>
+		<!-- async loading attr added to script -->
+		<script src="assets/js/picturefill.js" async></script>
+	</head>
+	
+	<body>
 
+		<div class="container">
+			<h1>Responsive Images</h1>
+			<p>Picturefill 2.0 adds support for both the <code>picture</code> element and also new responsive attributes to the <code>img</code> element. Built and maintained by the filament Group</p>
+			READ: <a href="http://ericportis.com/posts/2014/srcset-sizes/">Eric Portis: Srcset and Sizes</a>
 
-READ: <a href="http://ericportis.com/posts/2014/srcset-sizes/">Eric Portis: Srcset and Sizes</a>
-<p>The <code>sizes</code> syntax is used to define the size of the image across a number of breakpoints.<br/> <code>srcset</code> then defines an array of images and their inherent sizes</p>
-<img 
-sizes="100vw, (min-width: 40em) 80vw" 
-srcset="assets/img/300x225-small.jpg 400w, assets/img/500x375-medium.jpg 800w, assets/img/680x480-large.jpg 1200w" 
-alt="Pie" />
-<hr/>
-<h2>Using <code>picture</code> Element</h2>
+			<ol>
+				<li>Ensure that images scale efficiently with srcset and sizes.</li>
+				<li>Art direct images with picture and source media.</li>
+				<li>Supply an alternate image format using picture and source type.</li>
+			</ol>
+			<hr/>
+			<!-- <h2>img with srcset &amp; sizes - notes</h2>
+			<p>The new srcset attribute tells the browser that it should load one image on a small low-res screen, and load another in a big, high-res one. However, the browser can still choose to ignore this suggestion. If the browser knows the network conditions are poor, or the device is running out of battery, it may choose to download a low resolution image even to an HD Tablet.</p>
 
-</div>
+			<p>The <code>sizes</code> syntax is used to define the size of the image across a number of breakpoints. <code>srcset</code> then defines an array of images and their inherent sizes.</p>
 
+			<p>Have I mentioned you should READ: <a href="http://ericportis.com/posts/2014/srcset-sizes/">Eric Portis: Srcset and Sizes!!!</a></p>
+			<blockquote>"Let me emphasize that while you can attach 1x/2x resolution descriptors to sources in srcset instead of w descriptors, 1x/2x & w do not mix. Don’t use both in the same srcset. <strong>Really</strong>.” Eric Portis</blockquote>
+			
+			<p>The <code>sizes</code> syntax is used to define the size of the image across a number of breakpoints.<br/> 
+				<code>srcset</code> then defines an array of images and their inherent sizes<br/>
+				<span>sizes="[media query] [length], [media query] [length] ... etc, [default length]"</span>A length can be absolute (e.g. 99px, 16em) or relative (33.3vw. In the language of the spec, a length without a paired media query is a “default length”. If there are no media queries that match, that’ll get used.
+			<br/>
+			<code>srcset</code> takes a comma-separated list of URLs for the available versions of the image; each image’s width is specified using the <code>w</code> descriptor.
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script>
-if (!window.jQuery) {
-document.write('<script src="assets/js/libraries/jquery-2.1.1.min.js"><\/script>');
-}
-</script>
-<script src="assets/js/main.js"></script>
-</body>
+			<span>while you can attach 1x/2x resolution descriptors to sources in srcset instead of w descriptors, 1x/2x & w do not mix. Don’t use both in the same srcset.</span>
+			</p> -->
+			<h2>Using <code>srcset</code> Element</h2>
+			<p>The srcset 'x' part - Mo' pixels mo' problems (1x, 1.5x, 3x) <br/>
+			device-pixel-ratio use case using <code>x</code> descriptors.</p>
+			<div class="retina-example">
+				<!-- SRC is here for browsers w/out srcset -->
+				<img src="assets/img/puppy1x.jpg" 
+					 srcset="assets/img/puppy2x.jpg 2x, assets/img/puppyx.jpg 3x" 
+					 alt"Pembroke Welsh Corgi puppy."/> 
+			</div>
+
+			<!-- <img srcset="assets/img/500x375-medium.jpg 500w, 
+						assets/img/680x480-large.jpg 680w,
+						assets/img/1024x768-extralarge.jpg 1024w" 
+
+				sizes="100vw, (min-width: 40em) 80vw"
+
+				alt="Shark" />
+			<hr/> -->
+			<hr/>
+
+			<h2>Using <code>picture</code> Element</h2>
+			<p>Main use case is for art direction - cropping swapping portrait vs landscape<br/>
+			JS-Disabled Browsers only see alt text. For IE9, the video tag workaround helps us avoid this problem, but Android 2.3 will still have no access to source elements. Be sure to provide a srcset attribute on your enclosed img to ensure an image will show in this browser** </p>
+			
+			<!-- To support IE9, you will need to wrap a video element wrapper around the source elements in your picture tag -->
+			<picture>
+				<!--[if IE 9]><video style="display: none;"><![endif]-->
+				<source srcset="//www.ally.com/resources/pres/micro-sites/ally-dealer-heroes/images/hero-winner.png" media="(min-width: 800px)">
+				<source srcset="//www.ally.com/resources/pres/micro-sites/ally-dealer-heroes/images/hero-winner-mobile.png" media="(max-width: 799px)">
+				<!--[if IE 9]></video><![endif]-->
+				<img srcset="//www.ally.com/resources/pres/micro-sites/ally-dealer-heroes/images/hero-finalists.png"
+					 alt="time dealer of the year">
+			</picture>
+
+			
+			<p>MIME type fallback use case<br/>
+			The browser is provided with types and picks the one it supports. If we don't have the ability with a server side solution</p>
+			<picture>
+				<source type="image/webp"
+						srcset="//www.gstatic.com/webp/gallery/1.sm.webp">
+			<!-- 	<source type="image/vnd.ms-photo"
+						srcset="kitties.jpx"> -->
+				<img src="//www.gstatic.com/webp/gallery/1.sm.jpg" alt="kitties"/>
+			<picture>
+			<hr/>
+			<h2>Sizes and srcset <code>w</code> descriptor</h2>
+			<p>Use case - variable width images. NOTE: Doesn't mean that narrow viewports have smaller images. Single column layout on a phone will display larger images than a 2 column layout on a tablet</p>
+			<!-- FIXED WIDTH IMAGE -->
+			
+			<ul class="photolist">
+				<li>
+					<!-- you can mix fixed and percentage based lengths -->
+					<img sizes="(min-width : 1050px) 24vw,
+								(min-width : 700px) 33vw,
+								(min-width : 481px) 50vw,
+								100vw"
+						srcset="assets/img/left-shark/left-shark4-400.jpg 400w,
+								assets/img/left-shark/left-shark4-800.jpg 800w,
+								assets/img/left-shark/left-shark4-1200.jpg 1200w"
+						alt="A kick ass shark" />
+				</li>
+				<li>
+					<img sizes="(min-width : 1050px) 24vw,
+								(min-width : 700px) 33vw,
+								(min-width : 481px) 50vw,
+								100vw"
+						srcset="assets/img/left-shark/left-shark3-400.jpg 400w,
+								assets/img/left-shark/left-shark3-800.jpg 800w,
+								assets/img/left-shark/left-shark3-1200.jpg 1200w"
+						alt="A kick ass shark" />
+				</li>
+				<li>
+					<img sizes="(min-width : 1050px) 24vw,
+								(min-width : 700px) 33vw,
+								(min-width : 481px) 50vw,
+								100vw"
+						srcset="assets/img/left-shark/left-shark2-400.jpg 400w,
+								assets/img/left-shark/left-shark2-800.jpg 800w,
+								assets/img/left-shark/left-shark2-1200.jpg 1200w"
+						alt="A kick ass shark" />
+				</li>
+				<li>
+					<img sizes="(min-width : 1050px) 24vw,
+								(min-width : 700px) 33vw,
+								(min-width : 481px) 50vw,
+								100vw"
+						srcset="assets/img/left-shark/left-shark1-400.jpg 400w,
+								assets/img/left-shark/left-shark1-800.jpg 800w,
+								assets/img/left-shark/left-shark1-1200.jpg 1200w"
+						alt="A kick ass shark" />
+				</li>
+			</ul>
+		</div>
+
+		<script>
+			// you might not put any direct HTML, but instead define a series of source images and breakpoints like so:
+				// {
+				// 	"source":"/source.jpg",
+				// 	"breakpoints": [
+				// 		{ "max-width":"30em","pixel-density":1,"width":360px}, 
+				// 		{ "max-width":"30em","pixel-density":2,"width":720px},
+				// 		{ "max-width":"30em","pixel-density":1,"width":800px},
+				// 		{ "max-width":"30em","pixel-density":2,"width":1600px},
+				// 		{ "pixel-density":1,"width":800px},
+				// 		{ "pixel-density":2,"width":1600px},
+				// 	]
+				// }
+	 		// pass that to a central function that would output the correct PictureFill markup or whatever markup you’re going to use. key is that by centralizing image markup in a function, you can change it quickly when the standards evolve.
+		</script>
+	</body>
 </html>
